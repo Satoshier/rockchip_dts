@@ -1575,7 +1575,7 @@
         status = "okay";
         pinctrl-0 = <&pwm2m1_ch6>;
 };
-
+ 
 
 //PPS-O2
 &pwm1_6ch_5{
