@@ -140,13 +140,15 @@
 	};
 
 
-    /*	pps-gen {
+    	pps {
 		pinctrl-names = "default";
-		pinctrl-0 = <&pps_gen_pins>;
-		compatible = "pps-gen-gpio";
-		pps-gen-gpio = <&gpio0 RK_PB4 GPIO_ACTIVE_HIGH>;
-		default-state = "off";
-	};  */
+		pinctrl-0 = <&pps_gpio>;
+		compatible = "pps-gpio";
+		gpios = <&gpio2 RK_PC5 GPIO_ACTIVE_HIGH>;
+		//default-state = "off";
+                assert-rising-edge;
+                status = "okay";
+	};  
 
 	gpio-keys {
 		compatible = "gpio-keys";
@@ -1401,7 +1403,7 @@
 	/* rx_delay = <0x3f>; */
 
 	phy-handle = <&rgmii_phy1>;
-	status = "okay";
+	status = "disabled";                 //okay
 };
 
 &mdio0 {
@@ -1680,11 +1682,11 @@
 		};
 	};
 
-     /*	pps-gen {
-		pps_gen_pins: pps-gen-pins {
-        rockchip,pins = <0 RK_PB4 RK_FUNC_GPIO &pcfg_pull_down>;
+     	pps {
+		pps_gpio: pps-gpio {
+                        rockchip,pins = <2 RK_PC5 RK_FUNC_GPIO &pcfg_pull_none>;
     	        };
-	};  */
+	};  
 		
 	//SPI TO CAN
      	xl2515 {

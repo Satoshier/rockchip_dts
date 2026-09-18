@@ -14019,7 +14019,18 @@
    default-state = "off";
   };
  };
-# 151 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+
+
+     pps {
+  pinctrl-names = "default";
+  pinctrl-0 = <&pps_gpio>;
+  compatible = "pps-gpio";
+  gpios = <&gpio2 21 0>;
+
+                assert-rising-edge;
+                status = "okay";
+ };
+
  gpio-keys {
   compatible = "gpio-keys";
   autorepeat;
@@ -14061,7 +14072,7 @@
                     press-threshold-microvolt = <1750>;
                 };
         };
-# 206 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 208 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
 };
 
 
@@ -14460,7 +14471,7 @@
                         };
                 };
         };
-# 665 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 667 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
 };
 
 
@@ -15200,7 +15211,7 @@
 
 
  phy-handle = <&rgmii_phy1>;
- status = "okay";
+ status = "disabled";
 };
 
 &mdio0 {
@@ -15218,7 +15229,7 @@
   clocks = <&cru 50>;
  };
 };
-# 1437 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 1439 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
 &uart8 {
  status = "okay";
  pinctrl-names = "default";
@@ -15239,7 +15250,7 @@
 
 
 };
-# 1471 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 1473 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
 &backlight {
         pwms = <&pwm2_8ch_6 0 25000 0>;
         status = "disabled";
@@ -15247,7 +15258,7 @@
 
 
 &usbdp_phy {
-# 1498 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 1500 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
         maximum-speed = "high-speed";
         status = "okay";
 };
@@ -15372,7 +15383,7 @@
         status = "okay";
         pinctrl-0 = <&pwm0m1_ch1>;
 };
-# 1630 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+# 1632 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
 &pinctrl {
  leds {
   som_led0: som-led0 {
@@ -15425,7 +15436,14 @@
    rockchip,pins = <4 10 0 &pcfg_pull_none>;
   };
  };
-# 1690 "arch/arm64/boot/dts/rockchip/tl3576-evm.dts"
+
+      pps {
+  pps_gpio: pps-gpio {
+                        rockchip,pins = <2 21 0 &pcfg_pull_none>;
+             };
+ };
+
+
       xl2515 {
    xl2515_int0: xl2515-int0 {
      rockchip,pins = <2 3 0 &pcfg_pull_none>;
